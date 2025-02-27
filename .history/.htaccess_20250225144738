@@ -1,0 +1,9 @@
+RewriteEngine On
+
+php_flag display_errors on
+php_value error_reporting 32767
+
+# Chuyển hướng tất cả yêu cầu đến index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

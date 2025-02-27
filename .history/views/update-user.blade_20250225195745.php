@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <form action="{{ $_ENV['BASE_URL'] }}users/{{ $users['id']}}/update" method="post">
+        
+        
+
+       
+
+        @php
+        if(isset($_SESSION['errors'])) {
+            foreach ($_SESSION['errors'] as $value) {
+                echo "<h1>$value</h1>";
+                unset($_SESSION['errors']);
+            }
+        }
+        @endphp
+        <button>Update Pro</button>
+    </form>
+</body>
+
+</html>

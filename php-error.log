@@ -1,0 +1,10 @@
+[25-Feb-2025 08:56:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "App\Controllers\ProductController" not found in /Applications/XAMPP/xamppfiles/htdocs/asm2C/router.php:23
+Stack trace:
+#0 [internal function]: {closure}()
+#1 /Applications/XAMPP/xamppfiles/htdocs/asm2C/vendor/bramus/router/src/Bramus/Router/Router.php(458): call_user_func_array(Object(Closure), Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/asm2C/vendor/bramus/router/src/Bramus/Router/Router.php(440): Bramus\Router\Router->invoke(Object(Closure), Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/asm2C/vendor/bramus/router/src/Bramus/Router/Router.php(287): Bramus\Router\Router->handle(Array, true)
+#4 /Applications/XAMPP/xamppfiles/htdocs/asm2C/router.php(41): Bramus\Router\Router->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/asm2C/index.php(21): require('/Applications/X...')
+#6 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/asm2C/router.php on line 23

@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Doctrine\DBAL\Query;
+use Doctrine\DBAL\Query\QueryBuilder;
+
+class UserModel extends Model 
+{
+public function getUsers() 
+    {
+        $stmt = $this->queryBuilder->select("u.*")
+            ->from('users', 'u') //hiển thị tên danh mục
+            ->orderby('u.id', 'desc'); //hiển thị theo thứ tự id giảm dần
+        
+            return $stmt->fetchAllAssociative();    
+    }
+
+    public function addUser($image_url)
+    {
+        $stmt = $this->queryBuilder->insert("users")
+        ->values([
+            'user_name'       =>  ':user_name',
+            'age'              =>  ':age',
+            'img_thumbnail'     =>  ':img_thumbnail',
+            'description'       =>  ':description',
+            'create_at'         =>  ':create_at	',
+            'update_at'         =>  ':update_at',
+
+        ])
+        ->setParameters([
+            'user_name'     => $_POST['user_name'],
+            'age'           => $_POST['age'],
+            'email'         => $_FILES['email'],
+            'password'      => $_POST['password'],
+        ]);
+        $this->connection->executeStatement($stmt->getSQL(),$stmt->getParameters());
+    }
+}

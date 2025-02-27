@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    @php
+        if(isset($_SESSION['errors'])) {
+            foreach ($_SESSION['errors'] as $value) {
+                echo "<h1>$value</h1>";
+                unset($_SESSION['errors']);
+            }
+        }
+    @endphp
+    
+    <form action="{{ $_ENV['BASE_URL'] }}/users/store" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="">User Name</label>
+            <input type="text" placeholder="User Name" name="user_name" id="">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <label for="">User Name</label>
+            <input type="number" placeholder="Age" name="user_name" id="">
+        </div>
+        
+        <div>
+            <label for="">Hình ảnh Sản phẩm</label>
+            <input type="file" name="image" id="">  {{-- day file anh len:  enctype="multipart/form-data"--}}
+        </div>
+        <div>
+            <label for="">Mô tả Sản phẩm</label>
+            <textarea placeholder="Mô tả Sản phẩm" name="description"></textarea>
+        </div>
+
+        <button>Add Pro</button>
+    </form>
+{{--  --}}
+</body>
+</html>
